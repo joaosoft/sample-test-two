@@ -18,7 +18,7 @@ func (service *WebService) Reconfigure(options ...WebServiceOption) {
 }
 
 // WithConfiguration ...
-func WithConfiguration(config *services.DbMigrationConfig) WebServiceOption {
+func WithConfiguration(config *services.WatcherConfig) WebServiceOption {
 	return func(client *WebService) {
 		client.config = config
 	}

@@ -18,7 +18,7 @@ func (service *CmdService) Reconfigure(options ...CmdServiceOption) {
 }
 
 // WithConfiguration ...
-func WithConfiguration(config *services.DbMigrationConfig) CmdServiceOption {
+func WithConfiguration(config *services.WatcherConfig) CmdServiceOption {
 	return func(client *CmdService) {
 		client.config = config
 	}

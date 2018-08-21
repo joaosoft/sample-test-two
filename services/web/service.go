@@ -12,7 +12,7 @@ import (
 )
 
 type WebService struct {
-	config        *services.DbMigrationConfig
+	config        *services.WatcherConfig
 	isLogExternal bool
 	pm            *manager.Manager
 	mux           sync.Mutex

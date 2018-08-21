@@ -16,7 +16,7 @@ import (
 )
 
 type CmdService struct {
-	config        *services.DbMigrationConfig
+	config        *services.WatcherConfig
 	interactor    *services.Interactor
 	tag           map[string]Handler
 	isLogExternal bool
@@ -79,7 +79,7 @@ func (service *CmdService) AddTag(name string, handler Handler) error {
 	return nil
 }
 
-// Execute ...
+// execute ...
 func (service *CmdService) Execute(option MigrationOption, number int) (int, error) {
 	service.logger.Infof("executing dbmigration with option '-%s %s'", CmdMigrate, option)
 

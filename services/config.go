@@ -9,11 +9,11 @@ import (
 
 // AppConfig ...
 type AppConfig struct {
-	DbMigration DbMigrationConfig `json:"dbmigration"`
+	DbMigration WatcherConfig `json:"dbmigration"`
 }
 
-// DbMigrationConfig ...
-type DbMigrationConfig struct {
+// WatcherConfig ...
+type WatcherConfig struct {
 	Host string           `json:"host"`
 	Path string           `json:"path"`
 	Db   manager.DBConfig `json:"db"`
@@ -23,7 +23,7 @@ type DbMigrationConfig struct {
 }
 
 // NewConfig ...
-func NewConfig(host string, db manager.DBConfig) *DbMigrationConfig {
+func NewConfig(host string, db manager.DBConfig) *WatcherConfig {
 	appConfig := &AppConfig{}
 	if _, err := manager.NewSimpleConfig(fmt.Sprintf("/config/app.%s.json", GetEnv()), appConfig); err != nil {
 		log.Error(err.Error())
