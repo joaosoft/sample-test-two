@@ -1,7 +1,7 @@
 
 -- migrate up
-CREATE TABLE dbmigration.test1();
+CREATE TABLE migration.test1();
 
 
 -- migrate down
-DROP TABLE dbmigration.test1;
+DROP TABLE migration.test1;

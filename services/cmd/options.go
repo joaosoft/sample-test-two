@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"db-migration/services"
+	"migration/services"
 
 	"github.com/joaosoft/logger"
 	"github.com/joaosoft/manager"

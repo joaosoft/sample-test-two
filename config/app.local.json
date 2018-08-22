@@ -1,5 +1,5 @@
 {
-  "dbmigration": {
+  "migration": {
     "host": "localhost:8001",
     "path": "schema/db/postgres/example",
     "db": {

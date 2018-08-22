@@ -5,7 +5,7 @@ import (
 
 	"sync"
 
-	"db-migration/services"
+	"migration/services"
 
 	"github.com/joaosoft/logger"
 	"github.com/joaosoft/manager"
@@ -36,12 +36,12 @@ func NewService(options ...WebServiceOption) (*WebService, error) {
 		service.logger.Error(err.Error())
 	} else {
 		service.pm.AddConfig("config_app", simpleConfig)
-		level, _ := logger.ParseLevel(appConfig.DbMigration.Log.Level)
+		level, _ := logger.ParseLevel(appConfig.Migration.Log.Level)
 		service.logger.Debugf("setting log level to %s", level)
 		service.logger.Reconfigure(logger.WithLevel(level))
 	}
 
-	service.config = &appConfig.DbMigration
+	service.config = &appConfig.Migration
 
 	service.Reconfigure(options...)
 
@@ -49,7 +49,7 @@ func NewService(options ...WebServiceOption) (*WebService, error) {
 		service.config.Host = services.DefaultURL
 	}
 
-	simpleDB := manager.NewSimpleDB(&appConfig.DbMigration.Db)
+	simpleDB := manager.NewSimpleDB(&appConfig.Migration.Db)
 	if err := service.pm.AddDB("db_postgres", simpleDB); err != nil {
 		service.logger.Error(err.Error())
 		return nil, err

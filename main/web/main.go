@@ -1,7 +1,7 @@
 package main
 
 import (
-	"db-migration/services/web"
+	"migration/services/web"
 )
 
 func main() {

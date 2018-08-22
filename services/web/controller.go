@@ -1,7 +1,7 @@
 package web
 
 import (
-	"db-migration/services"
+	"migration/services"
 	"net/http"
 
 	"github.com/joaosoft/errors"

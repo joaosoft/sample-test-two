@@ -9,7 +9,7 @@ import (
 
 // AppConfig ...
 type AppConfig struct {
-	DbMigration WatcherConfig `json:"dbmigration"`
+	Migration WatcherConfig `json:"migration"`
 }
 
 // WatcherConfig ...
@@ -29,7 +29,7 @@ func NewConfig(host string, db manager.DBConfig) *WatcherConfig {
 		log.Error(err.Error())
 	}
 
-	appConfig.DbMigration.Host = host
+	appConfig.Migration.Host = host
 
-	return &appConfig.DbMigration
+	return &appConfig.Migration
 }

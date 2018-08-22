@@ -1,5 +1,5 @@
-# dbmigration
-[![Build Status](https://travis-ci.org/joaosoft/dbmigration.svg?branch=master)](https://travis-ci.org/joaosoft/dbmigration) | [![codecov](https://codecov.io/gh/joaosoft/dbmigration/branch/master/graph/badge.svg)](https://codecov.io/gh/joaosoft/dbmigration) | [![Go Report Card](https://goreportcard.com/badge/github.com/joaosoft/dbmigration)](https://goreportcard.com/report/github.com/joaosoft/dbmigration) | [![GoDoc](https://godoc.org/github.com/joaosoft/dbmigration?status.svg)](https://godoc.org/github.com/joaosoft/dbmigration)
+# migration
+[![Build Status](https://travis-ci.org/joaosoft/migration.svg?branch=master)](https://travis-ci.org/joaosoft/migration) | [![codecov](https://codecov.io/gh/joaosoft/migration/branch/master/graph/badge.svg)](https://codecov.io/gh/joaosoft/migration) | [![Go Report Card](https://goreportcard.com/badge/github.com/joaosoft/migration)](https://goreportcard.com/report/github.com/joaosoft/migration) | [![GoDoc](https://godoc.org/github.com/joaosoft/migration?status.svg)](https://godoc.org/github.com/joaosoft/migration)
 
 A simple database migration tool to integrate in your projects
 
@@ -20,14 +20,14 @@ Project dependencies are managed using Dep. Read more about [Dep](https://github
 
 >### Go
 ```
-go get github.com/joaosoft/dbmigration
+go get github.com/joaosoft/migration
 ```
 
 ## Usage 
-This examples are available in the project at [db-migration/main/cmd/main.go](https://github.com/joaosoft/db-migration/tree/master/main/cmd/main.go)
+This examples are available in the project at [migration/main/cmd/main.go](https://github.com/joaosoft/migration/tree/master/main/cmd/main.go)
 ```
 import (
-	github.com/joaosoft/dbmigration
+	github.com/joaosoft/migration
 	"flag"
 
 	"fmt"
@@ -70,7 +70,7 @@ func CustomHandler(option cmd.MigrationOption, tx *sql.Tx, data string) error {
 > Configuration file
 ```
 {
-  "dbmigration": {
+  "migration": {
     "host": "localhost:8001",
     "path": "schema/db/postgres/example",
     "db": {
@@ -92,7 +92,7 @@ func CustomHandler(option cmd.MigrationOption, tx *sql.Tx, data string) error {
 > Migration file example
 ```
 -- migrate up
-CREATE TABLE dbmigration.test1();
+CREATE TABLE migration.test1();
 
 -- custom up
 teste do joao A
@@ -101,7 +101,7 @@ teste do joao B
 
 
 -- migrate down
-DROP TABLE dbmigration.test1;
+DROP TABLE migration.test1;
 
 -- custom down
 teste do joao 1
@@ -111,19 +111,19 @@ teste do joao 2
 > Migration commands
 ```
 // migrate up all migrations
-dbmigration -migrate up
+migration -migrate up
 
 // migrate up 2 migrations
-dbmigration -migrate up -number 2
+migration -migrate up -number 2
 
 // migrate down one migration
-dbmigration -migrate down
+migration -migrate down
 
 // migrate down 2 migration
-dbmigration -migrate down -number 2
+migration -migrate down -number 2
 
 // migrate down all migration
-dbmigration -migrate down -number -1
+migration -migrate down -number -1
 ```
 
 ## Administration

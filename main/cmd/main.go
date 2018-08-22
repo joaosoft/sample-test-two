@@ -1,8 +1,8 @@
 package main
 
 import (
-	"db-migration/services/cmd"
 	"flag"
+	"migration/services/cmd"
 
 	"fmt"
 

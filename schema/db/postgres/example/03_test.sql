@@ -1,10 +1,10 @@
 
 -- migrate up
-CREATE TABLE dbmigration.test3();
+CREATE TABLE migration.test3();
 
 
 -- migrate down
-DROP TABLE dbmigration.test3;
+DROP TABLE migration.test3;
 
 -- custom down
 teste do joao 1
