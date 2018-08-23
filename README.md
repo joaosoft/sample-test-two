@@ -25,6 +25,25 @@ go get github.com/joaosoft/migration
 
 ## Usage 
 This examples are available in the project at [migration/main/cmd/main.go](https://github.com/joaosoft/migration/tree/master/main/cmd/main.go)
+> Migration commands
+```
+// migrate up all migrations
+migration -migrate up
+
+// migrate up 2 migrations
+migration -migrate up -number 2
+
+// migrate down one migration
+migration -migrate down
+
+// migrate down 2 migration
+migration -migrate down -number 2
+
+// migrate down all migration
+migration -migrate down -number -1
+```
+
+> By code
 ```
 import (
 	github.com/joaosoft/migration
@@ -106,24 +125,6 @@ DROP TABLE migration.test1;
 -- custom down
 teste do joao 1
 teste do joao 2
-```
-
-> Migration commands
-```
-// migrate up all migrations
-migration -migrate up
-
-// migrate up 2 migrations
-migration -migrate up -number 2
-
-// migrate down one migration
-migration -migrate down
-
-// migrate down 2 migration
-migration -migrate down -number 2
-
-// migrate down all migration
-migration -migrate down -number -1
 ```
 
 ## Administration
