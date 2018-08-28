@@ -1,9 +1,9 @@
 run:
-	go run ./bin/launcher/main.go
+	go run ./main.go
 
 build:
 	mkdir -p bin/cmd/
-	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -a -installsuffix cgo -o bin/cmd/migration main/cmd/main.go
+	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -a -installsuffix cgo -o sample-test-one ./main.go
 
 fmt:
 	go fmt ./...
@@ -13,9 +13,3 @@ vet:
 
 gometalinter:
 	gometalinter ./*
-
-migrate-up:
-	./bin/cmd/migration -migrate up
-
-migrate-down:
-	./bin/cmd/migration -migrate down
