@@ -12,7 +12,7 @@
   },
   "manager": {
     "log": {
-      "level": "error"
+      "level": "info"
     }
   }
 }

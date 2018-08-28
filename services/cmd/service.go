@@ -60,6 +60,9 @@ func NewService(options ...CmdServiceOption) (*CmdService, error) {
 		return nil, err
 	}
 
+	wg := &sync.WaitGroup{}
+	wg.Add(1)
+	simpleDB.Start(wg)
 	service.interactor = services.NewInteractor(service.logger, services.NewStoragePostgres(service.logger, simpleDB))
 
 	return service, nil
@@ -187,33 +190,32 @@ func (service *CmdService) process(option MigrationOption, number int, executed 
 	service.logger.Infof("migrations already executed %+v", executed)
 	service.logger.Infof("migrations to execute %+v", migrations)
 
-	conn, err := service.config.Db.Connect()
-	if err != nil {
-		return 0, err
-	}
-	defer conn.Close()
-
-	tx, err := conn.Begin()
-	if err != nil {
-		return 0, err
-	}
-
-	defer func() {
-		if tx != nil {
-			if err != nil {
-				tx.Rollback()
-			} else {
-				tx.Commit()
-			}
-		}
-	}()
-
 	for _, migration := range migrations {
-		var migrationTags, customTags map[string]string
-		migrationTags, customTags, err = service.loadRunningTags(option, migration)
+		migrationTags, customTags, err := service.loadRunningTags(option, migration)
 		if err != nil {
 			return 0, err
 		}
+
+		conn, err := service.config.Db.Connect()
+		if err != nil {
+			return 0, err
+		}
+		defer conn.Close()
+
+		tx, err := conn.Begin()
+		if err != nil {
+			return 0, err
+		}
+
+		defer func() {
+			if tx != nil {
+				if err != nil {
+					tx.Rollback()
+				} else {
+					tx.Commit()
+				}
+			}
+		}()
 
 		// execute migration handlers
 		for key, value := range migrationTags {
