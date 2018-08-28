@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 
-	logger "github.com/joaosoft/logger"
+	"github.com/joaosoft/logger"
+	samplethree "github.com/joaosoft/sample-test-three"
 )
 
 func main() {
@@ -12,5 +13,6 @@ func main() {
 
 func NewSampleTestTwo() string {
 	logger.Info("executing info logger for sample-test-two")
+	fmt.Println(samplethree.NewSampleTestThree())
 	return "hello, i'm the sample-test-two"
 }
