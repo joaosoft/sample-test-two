@@ -7,7 +7,7 @@ jobs:
   include:
     - stage: test
       install:
-        - go get -u github.com/joaosoft/dependency
+        - go get github.com/joaosoft/dependency
         - dependency get
       os: linux
       go: master
