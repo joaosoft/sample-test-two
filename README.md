@@ -1,5 +1,5 @@
 # sample-test-two
-    [![Build Status](https://travis-ci.org/joaosoft/sample-test-two.svg?branch=master)](https://travis-ci.org/joaosoft/sample-test-two) | [![codecov](https://codecov.io/gh/joaosoft/sample-test-two/branch/master/graph/badge.svg)](https://codecov.io/gh/joaosoft/sample-test-two) | [![Go Report Card](https://goreportcard.com/badge/github.com/joaosoft/sample-test-two)](https://goreportcard.com/report/github.com/joaosoft/sample-test-two) | [![GoDoc](https://godoc.org/github.com/joaosoft/sample-test-two?status.svg)](https://godoc.org/github.com/joaosoft/sample-test-two)
+[![Build Status](https://travis-ci.org/joaosoft/sample-test-two.svg?branch=master)](https://travis-ci.org/joaosoft/sample-test-two) | [![codecov](https://codecov.io/gh/joaosoft/sample-test-two/branch/master/graph/badge.svg)](https://codecov.io/gh/joaosoft/sample-test-two) | [![Go Report Card](https://goreportcard.com/badge/github.com/joaosoft/sample-test-two)](https://goreportcard.com/report/github.com/joaosoft/sample-test-two) | [![GoDoc](https://godoc.org/github.com/joaosoft/sample-test-two?status.svg)](https://godoc.org/github.com/joaosoft/sample-test-two)
 
 A dummy project for test purposes.
 
