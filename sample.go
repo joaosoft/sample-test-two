@@ -1,4 +1,4 @@
-package main
+package sample
 
 import (
 	"fmt"
@@ -6,10 +6,6 @@ import (
 	"github.com/joaosoft/logger"
 	samplethree "github.com/joaosoft/sample-test-three"
 )
-
-func main() {
-	fmt.Println(NewSampleTestTwo())
-}
 
 func NewSampleTestTwo() string {
 	logger.Info("executing info logger for sample-test-two")
